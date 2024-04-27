@@ -22,7 +22,7 @@
         subtracao = numero1 - numero2;
         multiplicacao = numero1 * numero2;
         divisao = numero1 / numero2;
-        resto = numero1 % numer2;
+        
 
         if (soma > subtracao){
             alert("Valor da soma é maior");
@@ -30,11 +30,18 @@
             alert("valor da soma é menor");
         }
 
+        if (multiplicacao < divisao){
+            alert("multiplicacao é menor que divisão");
+        }else if (multiplicacao > divisao){
+            alert("multiplicação é meior que divisão")
+        }
+
+
         alert(soma);
         alert(subtracao);
         alert(multiplicacao);
         alert(divisao);
-        alert(resto);
+       
 
     </script>
 
