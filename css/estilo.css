@@ -4,3 +4,12 @@
   box-sizing:border-box;
 }
 
+
+h1{
+  color: aquamarine;
+}
+
+button[type="submit"]{
+  background-color: black;
+  color: #fff;
+}
