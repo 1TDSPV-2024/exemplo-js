@@ -53,13 +53,32 @@
 // console.log(nr.toFixed(2));
 
 
-const btnElemento = document.getElementById("botao");
+// const btnElemento = document.getElementById("btnSubimit");
 
-btnElemento.addEventListener("click",function (){
+// btnElemento.addEventListener("click",function (){
     
-    console.log(btnElemento.innerHTML);
+//     console.log(btnElemento.innerHTML);
     
-});
+// });
 
-//Recuperação de elementos no DOM
+
+// HTML Collection
+let listaLi = document.getElementsByTagName("li");
+console.log(listaLi);
+
+// Array
+const nr1 = [1, 2, 3, 4 ,5]
+console.log(nr1)
+
+// Convertendo HTML Collection em Array com operador SPREAD (...);
+let novaListaLi = [...listaLi];
+console.log(novaListaLi);
+no
+const nr2 = [6,7,8,9,10];
+const novoArray = [...nr1,...nr2]
+
+// removeItem(novoArray,8);
+// novoArray.unshift(8);
+// console.log(novoArray);
+
 
