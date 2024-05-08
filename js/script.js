@@ -61,5 +61,5 @@ btnElemento.addEventListener("click",function (){
     
 });
 
-//recuperação de elemeontos do DOM 
+//Recuperação de elementos no DOM
 
