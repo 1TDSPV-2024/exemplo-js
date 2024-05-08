@@ -52,12 +52,65 @@
 // console.log(nr);
 // console.log(nr.toFixed(2));
 
+// AULA 08052024 ---------------------------------------------------------------------------------------------------------------------
+//RECUPERAÇÃO DE ELEMENTOS NO DOM
 
-const btnElemento = document.getElementById("botao");
+// 1. Recuperar usando document #################################################################################
 
-btnElemento.addEventListener("click",function (){
+// const btnElemento = document.getElementById("botao"); //document.getElementById(elementId: string): Retorno da função OU null
+
+// // função addEvenListener -> adiciona um escutador de evento (ele vai ficar "escutando" (esperando), assim que um usuário der um clique a função vai disparar)
+// btnElemento.addEventListener("click",function (){
     
-    console.log(btnElemento.innerHTML);
+//     console.log(btnElemento.innerHTML); //OUTPUT: Teste de botão
     
+// });
+
+// // ATIVIDADE: Recupere o botao de submit do FORM, atrele o evento de mouseover e dispare um alert com a seguinte mensagem: "CONSEGUI"
+// const botaoEnviar = document.getElementById("botaoEnviar");
+
+// botaoEnviar.addEventListener("mouseover",function (){
+    
+//     alert("CONSEGUI");
+    
+// });
+
+// // puxar todos os elementos <li></li>
+//     // HTMLCollection
+// let listaLi = document.getElementsByTagName("li");
+// console.log(listaLi);
+
+//     //Array
+// const nr1 = [1,2,3,4,5];
+// console.log(nr1);
+
+// // Converter HTMLCollection para Array -> operador SPREAD (...)
+// let novaListaLi = [...listaLi];
+// console.log(novaListaLi);
+
+// const nr2 = [6,7,8,9,10];
+
+// // Concatenar duas listas em uma nova
+// const novoArray = [...nr1,...nr2];
+// console.log(novoArray)
+
+// // Juntas duas listas (coloca um do lado do outro)
+// console.log(nr1.concat(nr2));
+
+// // 2. QUERY SELECTOR (chamar pelo SELETOR) #################################################################################
+// const btnSubmit = document.querySelector("button[type=submit]");
+// console.log(btnSubmit.innerText);
+
+//ATIVIDADE: Recuperar os inputs Email e Senha e imprimir o atributo placeholder de ambos no console
+const inputEmail = document.querySelector("#idEmail"); // # = chama ID da tag | OU input[type=email]
+console.log(inputEmail.placeholder);
+
+//Alterar o item selecionado
+const btnSubmit = document.querySelector("button[type=submit]");
+//btnSubmit.innerText = "<p>TEXTO</p>" //ENTENDE TEXTO   #OUT: <p>TEXTO</p>
+btnSubmit.innerHTML = "<p>TEXTO</p>" //ENTENDE TAG     #OUT: TEXTO
+//console.log(btnSubmit.innerHTML);
+
+btnSubmit.addEventListener("click", ()=>{
+    console.log(inputEmail.value)
 });
-

@@ -4,3 +4,7 @@
   box-sizing:border-box;
 }
 
+/* considerando que o botão não tem classe nem id */
+button[type="submit"]{
+  color: aquamarine;
+}
