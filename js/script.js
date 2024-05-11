@@ -63,3 +63,59 @@ btnElemento.addEventListener("click",function (){
 
 //Recuperação de elementos no DOM
 
+//Recupere o botão de submit do FORM, atrele o evento de mouseover e dispare um alert com a seguinte mensagem: "CONSEGUI";
+
+// const botaoEnviar = document.getElementById("btnSubmit");
+// botaoEnviar.addEventListener("mouseover",function (){
+//     alert("CONSEGUI!");
+// });
+
+// //HTMLCollection
+// let listaLi = document.getElementsByTagName("li");
+// console.log(listaLi);
+
+// //Array
+// const nr1 = [1,2,3,4,5];
+// console.log(nr1);
+
+// //Convertendo HTMLCollection em Array com operador SPREAD ( ... );
+// let novaListaLi = [...listaLi];
+// console.log(novaListaLi);
+
+// const nr2 = [6,7,8,9,10];
+
+// const novoArray = [...nr1,...nr2];
+// console.log(novoArray);
+
+// //Removendo um item do array
+// // const removeItem = (array,item) => {
+// //     const indice = array.indexOf(item);
+// //     if(indice != -1 ) 
+// //         array.splice(indice,1);
+// //     else
+// //         console.log(`O valor não foi encontrado!`);
+// // }
+
+// // removeItem(novoArray,8);
+// // novoArray.unshift(8);
+// console.log(novoArray);
+
+// console.log(nr1.concat(nr2));
+
+
+
+
+//Recuperar os inputs Email e Senha e imprimir o atributo placeholder de ambos no console.
+
+// const inputEmail = document.querySelector("input[placeholder='Digite seu email']");
+const inputEmail = document.querySelector(".email");
+console.log(inputEmail.placeholder);
+
+const btnSubmit = document.querySelector("button[type=submit]");
+// btnSubmit.innerText = "<p>TEXTO</p>";
+btnSubmit.innerHTML = "<p>TEXTO</p>";
+// console.log(btnSubmit.innerHTML);
+
+btnSubmit.addEventListener("click", ()=>{
+    console.log(inputEmail.value);
+});
