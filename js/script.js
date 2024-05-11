@@ -53,13 +53,13 @@
 // console.log(nr.toFixed(2));
 
 
-const btnElemento = document.getElementById("botao");
+// const btnElemento = document.getElementById("botao");
 
-btnElemento.addEventListener("click",function (){
+// btnElemento.addEventListener("click",function (){
     
-    console.log(btnElemento.innerHTML);
+//     console.log(btnElemento.innerHTML);
     
-});
+// });
 
 //Recuperação de elementos no DOM
 
@@ -107,15 +107,79 @@ btnElemento.addEventListener("click",function (){
 
 //Recuperar os inputs Email e Senha e imprimir o atributo placeholder de ambos no console.
 
-// const inputEmail = document.querySelector("input[placeholder='Digite seu email']");
-const inputEmail = document.querySelector(".email");
-console.log(inputEmail.placeholder);
+// // const inputEmail = document.querySelector("input[placeholder='Digite seu email']");
+// const inputEmail = document.querySelector(".email");
+// console.log(inputEmail.placeholder);
 
-const btnSubmit = document.querySelector("button[type=submit]");
-// btnSubmit.innerText = "<p>TEXTO</p>";
-btnSubmit.innerHTML = "<p>TEXTO</p>";
-// console.log(btnSubmit.innerHTML);
+// const btnSubmit = document.querySelector("button[type=submit]");
+// // btnSubmit.innerText = "<p>TEXTO</p>";
+// btnSubmit.innerHTML = "<p>TEXTO</p>";
+// // console.log(btnSubmit.innerHTML);
 
-btnSubmit.addEventListener("click", ()=>{
-    console.log(inputEmail.value);
-});
+// btnSubmit.addEventListener("click", ()=>{
+//     console.log(inputEmail.value);
+// });
+
+//Lista de usuários com objetos:
+let listaUsuarios = [
+    {nome:"Joaquim José", email:"jo@email", senha:"123"},
+    {nome:"Maria José", email:"ma@email", senha:"123"},
+    {nome:"Antonio José", email:"an@email", senha:"123"},
+    {nome:"Luis José", email:"lu@email", senha:"123"},
+    {nome:"Gertudres José", email:"ge@email", senha:"123"},
+];
+
+function validaLogin(input1,input2) {
+    let msgStatus;
+    try{
+        msgStatus = document.querySelector(".valida");
+    
+
+for (let x = 0; x < listaUsuarios.length; x++) {    
+   if((input1.value == listaUsuarios[x].email) && (input2.value == listaUsuarios[x].senha) ){
+        msgStatus.setAttribute("class","sucesso");
+        msgStatus.innerText = "Login realizado com SUCESSO!";
+        
+        setTimeout(()=>{
+            msgStatus.setAttribute("class","valida");
+            msgStatus.innerText = "";
+            window.location.href = "../status/sucesso.html";
+        },3000);
+        
+        return true;
+    }
+}
+    msgStatus.setAttribute("class","erro");
+    msgStatus.innerText = "Nome de Usuário e ou senha inválidos!";
+
+    setTimeout(()=>{
+        msgStatus.setAttribute("class","valida");
+        msgStatus.innerText = "";
+        window.location.href = "../status/erro.html";
+    },3000);
+    
+}catch(error){
+    msgStatus = ( document.querySelector(".sucesso") ? document.querySelector(".sucesso") : document.querySelector(".erro"));
+}
+
+    return false;
+}
+
+// if((input1.value == listaUsuarios[0].email) && (input2.value == listaUsuarios[0].senha) ){
+//     console.log("Usuário validado com sucesso!");
+//     return true;
+// }else{
+//     console.log("Usuário não validado!");
+//     return false;
+// }
+
+// listaUsuarios.forEach( (item,indice,array)=>{
+
+//     if((input1.value == array[indice].email) && (input2.value == array[indice].senha) ){
+//         console.log(`Usuário ${item.nome} foi validado com sucesso!`);
+//         return true;
+//     }else{
+//         console.log("Usuário não validado!");
+//         return false;
+//     }
+// } );
