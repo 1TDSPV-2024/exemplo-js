@@ -6,13 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/estilo.css">
     <title>JavaScript</title>
-    <script src="/js/script.js" defer></script> 
-    
 
-    <script>
-        
-
-    </script>
+    <script src="./js/script.js"  defer></script>
 
 </head>
 
@@ -30,8 +25,35 @@
     </header> 
 
     <button id="botao">Teste de botão</button>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque vero dolore eum harum ullam eos laborum, numquam quasi maxime magni, quibusdam hic? Quidem itaque voluptatem sapiente quasi atque, nisi consectetur aliquam expedita reprehenderit. Fugiat aliquid, possimus architecto similique nobis dolores laborum beatae et, magnam mollitia expedita, eligendi dolore? Perferendis, porro!</p>
 
+    <h2>VALIDAÇÃO</h2>
+    <div>
+        <p class="valida"></p>
+    </div>
+    <div>
+        <form action="#" method="get" onsubmit="return validaLogin(idEmail, idSenha)">
+            <fieldset>
+                <legend>LOGIN</legend>
+                <div>
+                    <label for="idEmail">Email</label>
+                    <input type="email" name="txtEmail" id="idEmail" placeholder="Digite seu email" class="email">
+                </div>
+                <div>
+                    <label for="idSenha">Senha</label>
+                    <input type="password" name="txtSenha" id="idSenha" placeholder="Digite sua senha">
+                </div>
+                <div>
+                    <input type="checkbox" name="txtLembrar" id="idLembrar" value="lembrete" checked>
+                    <label for="idLembrar">Lembrar-me</label>
+                </div>
+                <div>
+                    <button type="submit">Enviar</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+            
     
 </body>                     
 </html>
