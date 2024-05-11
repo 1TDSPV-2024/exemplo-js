@@ -102,15 +102,106 @@
 // console.log(btnSubmit.innerText);
 
 //ATIVIDADE: Recuperar os inputs Email e Senha e imprimir o atributo placeholder de ambos no console
-const inputEmail = document.querySelector("#idEmail"); // # = chama ID da tag | OU input[type=email]
-console.log(inputEmail.placeholder);
+// const inputEmail = document.querySelector("#idEmail"); // # = chama ID da tag | OU input[type=email]
+// console.log(inputEmail.placeholder);
 
-//Alterar o item selecionado
-const btnSubmit = document.querySelector("button[type=submit]");
-//btnSubmit.innerText = "<p>TEXTO</p>" //ENTENDE TEXTO   #OUT: <p>TEXTO</p>
-btnSubmit.innerHTML = "<p>TEXTO</p>" //ENTENDE TAG     #OUT: TEXTO
-//console.log(btnSubmit.innerHTML);
+// //Alterar o item selecionado
+// const btnSubmit = document.querySelector("button[type=submit]");
+// //btnSubmit.innerText = "<p>TEXTO</p>" //ENTENDE TEXTO   #OUT: <p>TEXTO</p>
+// btnSubmit.innerHTML = "<p>TEXTO</p>" //ENTENDE TAG     #OUT: TEXTO
+// //console.log(btnSubmit.innerHTML);
 
-btnSubmit.addEventListener("click", ()=>{
-    console.log(inputEmail.value)
-});
+// btnSubmit.addEventListener("click", ()=>{
+//     console.log(inputEmail.value)
+// });
+
+// AULA 10052024
+
+//criar lista de usuarios com objetos
+let listaUsuarios = [
+    {nome: "Joaquim José", email: "jo@email", senha: "123"},
+    {nome: "Maria José", email: "ma@email", senha: "123"},
+    {nome: "Antonio José", email: "an@email", senha: "123"},
+    {nome: "Luis José", email: "lu@email", senha: "123"},
+    {nome: "Gertrudes José", email: "ge@email", senha: "123"},
+];
+
+
+// function validaLogin(input1,input2) { //input1 e input2 -> ELEMENTOS HTML
+
+// for (let x = 0; x < listaUsuarios.length; x++) { //array = listaUsuarios
+//     // x vai ficar se comparando com o tamanho da lista
+    
+//     if ((input1.value == listaUsuarios[x].email) && (input2.value == listaUsuarios[x].senha)){
+//         console.log(`Usuário ${listaUsuarios[x].nome} validado com sucesso!`); // ` DIFERENTE DE '
+//         return true;
+//     }
+//     //nesse caso, caso o if esteja errado, ele vai pro else e ja morre sem ver os outros objetos
+//     // então o "else" irá ficar FORA DA FUNÇÃO
+// }
+
+//     console.log("Usuário não validado!");
+//     return false;
+// }
+
+
+// if ((input1.value == listaUsuarios[0].email) && (input2.value == listaUsuarios[0].senha)){
+//     console.log("Usuário validado com sucesso!")
+//     return true;
+// }else{
+//     console.log("Usuário não validado!")
+//     return false;
+// }
+
+// }
+
+// function validaLogin(input1,input2) { //input1 e input2 -> ELEMENTOS HTML
+
+//     listaUsuarios.forEach((item,indice,array)=>{});
+//     //na primeira volta que o loop der, o item vai pegar o primeiro onjeto da lista e jogar dentro da função
+//     //assim que o loop fecha, o item vai para o próximo objeto
+//     // porém o forEach leu todos os itens (ele não é bom para validação)
+
+//     if ((input1.value == array[indice].email) && (input2.value == array[indice].senha)){
+//         console.log(`Usuário ${item.nome} validado com sucesso!`); // ` DIFERENTE DE '
+//         return true;
+//     }else{
+//         console.log("Usuário não validado!");
+//         return false;
+//     }
+        // no forEach os return NÃO FUNCIONAM
+
+// }
+
+function validaLogin(input1,input2) { //input1 e input2 -> ELEMENTOS HTML
+
+    //chamar o paragrafo pela sua classe
+    const msgStatus = document.querySelector(".valida");
+
+for (let x = 0; x < listaUsuarios.length; x++) { //array = listaUsuarios
+
+    if ((input1.value == listaUsuarios[x].email) && (input2.value == listaUsuarios[x].senha)){
+        msgStatus.setAttribute("class","sucesso");
+        msgStatus.innerText = "Login realizado com sucesso!";
+
+        setTimeout( ()=>{
+            msgStatus.setAttribute("class", "valida");
+            msgStatus.innerText = "";
+            window.location.href = "../status/sucesso.html";
+        },3000 );
+
+        return true;
+    }
+}
+
+    msgStatus.setAttribute("class","erro");
+    msgStatus.innerText = "Nome de usuário e ou senha inválido"
+
+    setTimeout( ()=>{
+        msgStatus.setAttribute("class", "valida");
+        msgStatus.innerText = "";
+        window.location.href = "../status/erro.html";
+    },3000 );
+    
+    return false;
+}
