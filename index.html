@@ -31,16 +31,16 @@
         <p class="valida"></p>
     </div>
     <div>
-        <form action="#" method="get" onsubmit="return false">
+        <form action="#" method="get" onsubmit="return validaLogin(idEmail,idSenha,event)">
             <fieldset>
                 <legend>LOGIN</legend>
                 <div>
                     <label for="idEmail">Email</label>
-                    <input type="email" name="txtEmail" id="idEmail" placeholder="Digite seu email">
+                    <input type="email" name="txtEmail" id="idEmail" placeholder="Digite seu email" minlength="7" oninput="this.setCustomValidity('Tu é burro crlh, bota 7 caracteres ai')"> <!--minlength = qtd de caracteres minima-->
                 </div>
                 <div>
                     <label for="idSenha">Senha</label>
-                    <input type="password" name="txtSenha" id="idSenha" placeholder="Digite sua senha">
+                    <input type="password" name="txtSenha" id="idSenha" placeholder="Digite sua senha" required pattern="[A-Za-z0-9] {3}" oninput="this.setCustomValidity('Tu é burro crlh, bota 3 caracteres ai')">
                 </div>
                 <div>
                     <input type="checkbox" name="txtLembrar" id="idLembrar" value="lembrete" checked>
