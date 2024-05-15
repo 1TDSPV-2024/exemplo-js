@@ -117,14 +117,17 @@
 
 //Lista de usuarios com objetos
 let listaUsuarios = [
-    {nome:"Joaquim José", email:"jo@email", senha: "123"},
+    {nome:"Joaquim José", email:"joaquimjose@email", senha: "123"},
     {nome:"Maria José", email:"ma@email", senha: "123"},
     {nome:"Antonio José", email:"an@email", senha: "123"},
     {nome:"Luis José", email:"lu@email", senha: "123"},
     {nome:"Gertudres José", email:"ge@email", senha: "123"},
 ]
 
-function validaLogin(input1,input2) {
+function validaLogin(input1,input2,event) {
+
+    event.preventDefault();
+    
     let msgStatus;
     try{
         const msgStatus = document.querySelector(".valida")
