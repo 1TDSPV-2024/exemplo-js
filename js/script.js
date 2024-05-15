@@ -52,8 +52,14 @@
 // console.log(nr);
 // console.log(nr.toFixed(2));
 
+
+
+
 // AULA 08052024 ---------------------------------------------------------------------------------------------------------------------
 //RECUPERAÇÃO DE ELEMENTOS NO DOM
+
+
+
 
 // 1. Recuperar usando document #################################################################################
 
@@ -67,12 +73,10 @@
 // });
 
 // // ATIVIDADE: Recupere o botao de submit do FORM, atrele o evento de mouseover e dispare um alert com a seguinte mensagem: "CONSEGUI"
-// const botaoEnviar = document.getElementById("botaoEnviar");
 
+// const botaoEnviar = document.getElementById("botaoEnviar");
 // botaoEnviar.addEventListener("mouseover",function (){
-    
 //     alert("CONSEGUI");
-    
 // });
 
 // // puxar todos os elementos <li></li>
@@ -94,28 +98,48 @@
 // const novoArray = [...nr1,...nr2];
 // console.log(novoArray)
 
+// //Removendo um item do array
+// // const removeItem = (array,item) => {
+// //     const indice = array.indexOf(item);
+// //     if(indice != -1 ) 
+// //         array.splice(indice,1);
+// //     else
+// //         console.log(`O valor não foi encontrado!`);
+// // }
+
+// // removeItem(novoArray,8);
+// // novoArray.unshift(8);
+// console.log(novoArray);
+
 // // Juntas duas listas (coloca um do lado do outro)
 // console.log(nr1.concat(nr2));
+
+
+
 
 // // 2. QUERY SELECTOR (chamar pelo SELETOR) #################################################################################
 // const btnSubmit = document.querySelector("button[type=submit]");
 // console.log(btnSubmit.innerText);
 
 //ATIVIDADE: Recuperar os inputs Email e Senha e imprimir o atributo placeholder de ambos no console
-// const inputEmail = document.querySelector("#idEmail"); // # = chama ID da tag | OU input[type=email]
+
+// // const inputEmail = document.querySelector("input[placeholder='Digite seu email']");
+// const inputEmail = document.querySelector(".email");
 // console.log(inputEmail.placeholder);
 
-// //Alterar o item selecionado
 // const btnSubmit = document.querySelector("button[type=submit]");
-// //btnSubmit.innerText = "<p>TEXTO</p>" //ENTENDE TEXTO   #OUT: <p>TEXTO</p>
-// btnSubmit.innerHTML = "<p>TEXTO</p>" //ENTENDE TAG     #OUT: TEXTO
-// //console.log(btnSubmit.innerHTML);
+// // btnSubmit.innerText = "<p>TEXTO</p>";
+// btnSubmit.innerHTML = "<p>TEXTO</p>";
+// // console.log(btnSubmit.innerHTML);
 
 // btnSubmit.addEventListener("click", ()=>{
-//     console.log(inputEmail.value)
+//     console.log(inputEmail.value);
 // });
 
-// AULA 10052024
+
+
+
+// AULA 10052024 -------------------------------------------------------
 
 //criar lista de usuarios com objetos
 let listaUsuarios = [
@@ -126,6 +150,40 @@ let listaUsuarios = [
     {nome: "Gertrudes José", email: "ge@email", senha: "123"},
 ];
 
+function validaLogin(input1,input2) {
+    let msgStatus;
+    try{
+        msgStatus = document.querySelector(".valida");
+
+for (let x = 0; x < listaUsuarios.length; x++) {    
+    if((input1.value == listaUsuarios[x].email) && (input2.value == listaUsuarios[x].senha) ){
+        msgStatus.setAttribute("class","sucesso");
+        msgStatus.innerText = "Login realizado com SUCESSO!";
+        
+        setTimeout(()=>{
+            msgStatus.setAttribute("class","valida");
+            msgStatus.innerText = "";
+            window.location.href = "../status/sucesso.html";
+        },3000);
+        
+        return true;
+    }
+}
+    msgStatus.setAttribute("class","erro");
+    msgStatus.innerText = "Nome de Usuário e ou senha inválidos!";
+
+    setTimeout(()=>{
+        msgStatus.setAttribute("class","valida");
+        msgStatus.innerText = "";
+        window.location.href = "../status/erro.html";
+    },3000);
+    
+}catch(error){
+    msgStatus = ( document.querySelector(".sucesso") ? document.querySelector(".sucesso") : document.querySelector(".erro"));
+    }
+
+    return false;
+}
 
 // function validaLogin(input1,input2) { //input1 e input2 -> ELEMENTOS HTML
 
@@ -172,36 +230,3 @@ let listaUsuarios = [
         // no forEach os return NÃO FUNCIONAM
 
 // }
-
-function validaLogin(input1,input2) { //input1 e input2 -> ELEMENTOS HTML
-
-    //chamar o paragrafo pela sua classe
-    const msgStatus = document.querySelector(".valida");
-
-for (let x = 0; x < listaUsuarios.length; x++) { //array = listaUsuarios
-
-    if ((input1.value == listaUsuarios[x].email) && (input2.value == listaUsuarios[x].senha)){
-        msgStatus.setAttribute("class","sucesso");
-        msgStatus.innerText = "Login realizado com sucesso!";
-
-        setTimeout( ()=>{
-            msgStatus.setAttribute("class", "valida");
-            msgStatus.innerText = "";
-            window.location.href = "../status/sucesso.html";
-        },3000 );
-
-        return true;
-    }
-}
-
-    msgStatus.setAttribute("class","erro");
-    msgStatus.innerText = "Nome de usuário e ou senha inválido"
-
-    setTimeout( ()=>{
-        msgStatus.setAttribute("class", "valida");
-        msgStatus.innerText = "";
-        window.location.href = "../status/erro.html";
-    },3000 );
-    
-    return false;
-}
