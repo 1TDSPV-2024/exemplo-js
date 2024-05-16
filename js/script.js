@@ -129,7 +129,10 @@ let listaUsuarios = [
     {nome:"Gertudres José", email:"ge@email", senha:"123"},
 ];
 
-function validaLogin(input1,input2) {
+function validaLogin(input1,input2,event) {
+
+    // event.preventDefault();
+
     let msgStatus;
     try{
         msgStatus = document.querySelector(".valida");
