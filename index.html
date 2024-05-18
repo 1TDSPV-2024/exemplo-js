@@ -31,16 +31,18 @@
         <p class="valida"></p>
     </div>
     <div>
-        <form action="#" method="get" onsubmit="return validaLogin(idEmail, idSenha)">
+        <form action="#" method="get" onsubmit="return validaLogin(idEmail,idSenha,event)">
             <fieldset>
                 <legend>LOGIN</legend>
                 <div>
                     <label for="idEmail">Email</label>
-                    <input type="email" name="txtEmail" id="idEmail" placeholder="Digite seu email" class="email">
+                    <input type="email" name="txtEmail" id="idEmail" placeholder="Digite seu email" required 
+                    minlength="7" oninput="this.setCustonValidity('Caracteres insuficinetes.')">
                 </div>
                 <div>
                     <label for="idSenha">Senha</label>
-                    <input type="password" name="txtSenha" id="idSenha" placeholder="Digite sua senha">
+                    <input type="password" name="txtSenha" id="idSenha" placeholder="Digite sua senha" 
+                    required pattern="[A-Za-z0-9]{3}" oninput="this.setCustonValidity('Senha fora do padrão.')">
                 </div>
                 <div>
                     <input type="checkbox" name="txtLembrar" id="idLembrar" value="lembrete" checked>
@@ -49,6 +51,7 @@
                 <div>
                     <button type="submit">Enviar</button>
                 </div>
+
             </fieldset>
         </form>
     </div>
