@@ -212,5 +212,3 @@ function validaLogin(input1, input2){
 
 // }
 
-
-
