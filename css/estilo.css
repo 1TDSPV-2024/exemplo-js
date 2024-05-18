@@ -2,6 +2,7 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
+  background-color: black;
 }
 
 
@@ -9,9 +10,13 @@ h1{
   color: aquamarine;
 }
 
+h2{
+  color:white;
+}
+
 button[type="submit"]{
-  background-color: black;
-  color: #fff;
+  background-color: white;
+  color: black;
 }
 
 
@@ -32,3 +37,44 @@ button[type="submit"]{
   text-align: center;
   border: 2px solid #ff0000;
 }
+
+label[for="idEmail"] {
+  color: white;
+}
+label[for="idCpf"]{
+  color: white;
+}
+
+input::placeholder {
+  color: white;
+}
+
+label[for="idSenha"] {
+  color: white;
+}
+
+label[for="idLembrar"] {
+  color: white;
+}
+
+#idEmail,
+#idSenha,
+#idCpf,
+#idLembrar {
+    color: white;
+}
+
+legend{
+  color: white;
+}
+
+input[type=text]:invalid{
+border: 2px solid red;
+outline:none;
+}
+
+
+input[type=text]:valid{
+  border: 2px solid green;
+  outline: none;
+  }

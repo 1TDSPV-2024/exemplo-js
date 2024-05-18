@@ -14,7 +14,7 @@
 <body>
     
     <header id="topo">
-        <h1 id="titulo">JavaScript</h1>
+        <!-- <h1 id="titulo">JavaScript</h1>
         <nav>
             <ul>
                 <li class="link"><a href="#">JavaScript</a></li>
@@ -24,7 +24,7 @@
         </nav>
     </header> 
 
-    <button id="botao">Teste de botão</button>
+    <button id="botao">Teste de botão</button> -->
 
     <h2>VALIDAÇÃO</h2>
     <div>
@@ -36,11 +36,15 @@
                 <legend>LOGIN</legend>
                 <div>
                     <label for="idEmail">Email</label>
-                    <input type="email" name="txtEmail" id="idEmail" placeholder="Digite seu email" required>
-                </div>
+                    <input type="email" name="txtEmail" id="idEmail" placeholder="Digite seu email" minlength="7" oninvalid="this.setCustomValidity('Caractéres insuficientes.');">
+                </div> 
                 <div>
                     <label for="idSenha">Senha</label>
-                    <input type="password" name="txtSenha" id="idSenha" placeholder="Digite sua senha" required>
+                    <input type="password" name="txtSenha" id="idSenha" placeholder="Digite sua senha" required pattern="[A-Za-z0-9]{3}" oninvalid="this.setCustomValidity('Senha fora do padrão.')">
+                </div>
+                <div>
+                    <label for="idCpf">CPF</label>
+                    <input type="text" name="txtCpf" id="idCpf" placeholder="Digite seu CPF" required       pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$" oninvalid="this.setCustomValidity('CPF fora do padrão.')">
                 </div>
                 <div>
                     <input type="checkbox" name="txtLembrar" id="idLembrar" value="lembrete" checked>
@@ -49,7 +53,6 @@
                 <div>
                     <button type="submit">Enviar</button>
                 </div>
-
             </fieldset>
         </form>
     </div>

@@ -130,9 +130,9 @@ let listaUsuarios = [
 ];
 
 function validaLogin(input1,input2,event) {
-    
-    event.preventDefault();
-    
+
+    // event.preventDefault();
+
     let msgStatus;
     try{
         msgStatus = document.querySelector(".valida");
@@ -187,3 +187,24 @@ for (let x = 0; x < listaUsuarios.length; x++) {
 //     }
 // } );
 
+let inputCpf = document.querySelector("#idCpf");
+
+inputCpf.addEventListener("input", ()=>{
+    let cpf = inputCpf.value;
+
+    //Remover os caractéres indesejados com Regex;
+    cpf = cpf.replace(/\D/g, "")
+    //Iniciando a substituição do $1 e $2 grupos da Regex com replace.
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{3})/, "$1.$2"); 
+    cpf = cpf.replace(/(\d{3})(\d{2})$/, "$1-$2");
+    
+    inputCpf.value = cpf;
+
+});
+
+inputCpf.addEventListener("focus",(e)=>{
+    if(e.target.value == ""){
+        e.target.style.border = "";
+    }
+});
