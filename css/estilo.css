@@ -1,6 +1,32 @@
-*{
+* {
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
+input[type=email]:invalid{
+  border: 2px solid #FF0000;
+}
+
+input[type=email]:valid{
+  border: 2px solid #01ce23;
+  outline: none;
+}
+
+input[type=password]:invalid{
+  border: 2px solid #FF0000;
+}
+
+input[type=password]:valid{
+  border: 2px solid #01ce23;
+  outline: none;
+}
+
+input[type=text]:invalid{
+  border: 2px solid #FF0000;
+}
+
+input[type=text]:valid{
+  border: 2px solid #01ce23;
+  outline: none;
+}

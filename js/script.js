@@ -186,3 +186,19 @@ for (let x = 0; x < listaUsuarios.length; x++) {
 //         return false;
 //     }
 // } );
+
+let inputCpf = document.querySelector("#idCpf");
+
+inputCpf.addEventListener("input", ()=>{
+    let cpf = inputCpf.value;
+
+    //Removendo caracteres indesejados
+    cpf = cpf.replace(/\D/g, "");
+    //Inciando a substituição do $1 e $2 grupos da Regez com Replace
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{3})/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{3})/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{2})$/, "$1-$2");
+
+    inputCpf.value = cpf;
+});
