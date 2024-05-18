@@ -128,7 +128,7 @@ let listaUsuarios = [
     {nome:"Luis José", email:"lu@email", senha:"123"},
     {nome:"Gertudres José", email:"ge@email", senha:"123"},
 ];
-
+ 
 function validaLogin(input1,input2,event) {
 
     // event.preventDefault();
@@ -186,3 +186,18 @@ for (let x = 0; x < listaUsuarios.length; x++) {
 //         return false;
 //     }
 // } );
+
+let inputCpf = document.querySelector("#idCpf");
+
+inputCpf.addEventListener("input", ()=>{
+    let cpf = inputCpf.value;
+
+    //Remover os caractéres indesejados com Regex;
+    cpf = cpf.replace(/\D/g, "");
+    // //Iniciando a substituição do $1 e $2 grupos da Regex com Replace.
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{3})/, "$1.$2"); 
+    cpf = cpf.replace(/(\d{3})(\d{2})$/, "$1-$2");
+    
+    inputCpf.value = cpf;
+});
