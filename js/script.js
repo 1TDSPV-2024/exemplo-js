@@ -189,7 +189,7 @@ for (let x = 0; x < listaUsuarios.length; x++) {
 
 let inputCpf = document.querySelector("#idCpf");
 
-inputCpf.addEventListener("input", ()=>{
+inputCpf.addEventListener("input", (e)=>{
     let cpf = inputCpf.value;
 
     //Removendo caracteres indesejados
