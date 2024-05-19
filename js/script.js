@@ -155,7 +155,7 @@ for (let x = 0; x < listaUsuarios.length; x++) {
     setTimeout(()=>{
         msgStatus.setAttribute("class","valida");
         msgStatus.innerText = "";
-        window.location.href = "../status/erro.html";
+        window.location.href = "../status/sucesso.html";
     },3000);
     
 }catch(error){
