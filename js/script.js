@@ -233,3 +233,33 @@ for (let x = 0; x < listaUsuarios.length; x++) {
         // no forEach os return NÃO FUNCIONAM
 
 // }
+
+let inputCpf = document.querySelector("#idCpf");
+
+inputCpf.addEventListener("input", ()=>{
+    let cpf = inputCpf.value;
+
+    //Remover os caractéres indesejados com Regex;
+    cpf = cpf.replace(/\D/g, "");
+    // //Iniciando a substituição do $1 e $2 grupos da Regex com Replace.
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{3})/, "$1.$2"); 
+    cpf = cpf.replace(/(\d{3})(\d{2})$/, "$1-$2");
+
+    inputCpf.value = cpf;
+});
+
+// CAPTURAR LOGIN, CLOSE E MODAL (QUERY SELECTOR) -------------------------------------------------------------------------
+const botaoLogin = document.querySelector("#btnLogin"); // transferiu o controle do botão do HTML para a área de código (JS)
+const botaoClose = document.querySelector("#btnClose");
+const modal = document.querySelector("dialog");
+
+// adiciona um escutador de eventos (dois parâmetros = evento + função anônima)
+botaoLogin.addEventListener("click", ()=>{
+    modal.showModal(); // ABRE A ABA SALTADA
+})
+
+botaoClose.addEventListener("click", ()=>{
+    modal.close(); //FECHA A ABA SALTADA
+});
+
