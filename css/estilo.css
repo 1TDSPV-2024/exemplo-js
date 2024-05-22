@@ -4,7 +4,7 @@
   box-sizing:border-box;
 }
 
-
+ 
 h1{
   color: aquamarine;
 }
@@ -41,4 +41,74 @@ input[type=text]:invalid{
 input[type=text]:valid{
   border: 2px solid #058a0e;
   outline: none;
+}
+
+
+
+#btnLogin{
+  background-color: #ff0000;
+ display: block;
+ width: 60px;
+ height: 30px;
+ padding: 5px;
+ text-align: center;
+ margin-left: 5%;
+ margin-top: 5%;
+ text-decoration: none;
+ border-radius: 5px;
+ border: 2px solid #0000ff;
+ color: #0000ff;
+}
+
+#btnLogin:hover{
+  text-decoration: underline;
+}
+
+
+#btnClose{
+  background-color: #ff0000;
+ display: block;
+ width: 30px;
+ height: 30px;
+ padding: 5px;
+ text-align: center;
+ margin: 1% 4% 3% 0;
+ text-decoration: none;
+ border-radius: 100%;
+ border: 2px solid #0000ff;
+ color: #0000ff;
+ transition: all .4s ease;
+ float: right;
+
+}
+
+#btnClose:hover{
+  background-color: #0000ff;
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+.form-group{
+  clear: right;
+}
+
+dialog{
+  margin: 5% auto;
+  border: none;
+  border-radius: 5px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0,0,0,.8);
+}
+
+#tit-h2::before{
+  content: "____________";
+  display: block;
+  padding-bottom: 20px;
+}
+
+#tit-h2::after{
+  display: block;
+  content: "____________";
 }

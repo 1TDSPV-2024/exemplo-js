@@ -201,3 +201,17 @@ inputCpf.addEventListener("input", ()=>{
     
     inputCpf.value = cpf;
 });
+
+
+//Capturando os elementos do DOM, a=btnLogin, a=btlClose e dialog.
+const botaoLogin = document.querySelector("#btnLogin");
+const botaoClose = document.querySelector("#btnClose");
+const modal = document.querySelector("dialog");
+
+botaoLogin.addEventListener("click", ()=>{
+    modal.showModal();
+});
+
+botaoClose.addEventListener("click", ()=>{
+    modal.close();
+});
